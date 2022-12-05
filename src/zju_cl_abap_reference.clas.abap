@@ -41,6 +41,21 @@ CLASS zju_cl_abap_reference IMPLEMENTATION.
     out->write( |Feld Symbol i1 && { <i1> } |  ).
     out->write( |Feld Symbol i2 && { <i2> }|  ).
 
+    DATA: lt_tab TYPE tabname VALUE '/dmo/agency',
+          my_ref TYPE REF TO data.
+
+    FIELD-SYMBOLS <wa> TYPE any.
+
+    CREATE DATA my_ref TYPE (lt_tab).
+
+    ASSIGN my_ref->* TO <wa>.
+
+    select single * from (lt_tab) into @<wa>.
+
+    out->write( <wa> ).
+
+
+
 
   ENDMETHOD.
 ENDCLASS.
