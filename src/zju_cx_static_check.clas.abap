@@ -1,4 +1,4 @@
-CLASS zju_cx_sd_static_check DEFINITION
+CLASS zju_cx_static_check DEFINITION
   PUBLIC
   INHERITING FROM cx_static_check
   FINAL
@@ -17,7 +17,7 @@ CLASS zju_cx_sd_static_check DEFINITION
 
     CLASS-METHODS  raise_bapiret2
       IMPORTING is_bapiret2 TYPE bapiret2
-      RAISING   zju_cx_sd_static_check.
+      RAISING   zju_cx_static_check.
 
     METHODS constructor
       IMPORTING
@@ -29,7 +29,7 @@ ENDCLASS.
 
 
 
-CLASS zju_cx_sd_static_check IMPLEMENTATION.
+CLASS zju_cx_static_check IMPLEMENTATION.
 
 
   METHOD constructor ##ADT_SUPPRESS_GENERATION.
@@ -61,7 +61,7 @@ CLASS zju_cx_sd_static_check IMPLEMENTATION.
   METHOD raise_bapiret2.
     lcl_local=>fill_syst( is_bapiret2 ).
 
-    RAISE EXCEPTION TYPE zju_cx_sd_static_check
+    RAISE EXCEPTION TYPE zju_cx_static_check
       MESSAGE ID sy-msgid
       TYPE sy-msgty
       NUMBER sy-msgno
