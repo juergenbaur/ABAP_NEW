@@ -13,7 +13,7 @@ ENDCLASS.
 
 
 
-CLASS zju_cl_abap_reference IMPLEMENTATION.
+CLASS ZJU_CL_ABAP_REFERENCE IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun_out~get.

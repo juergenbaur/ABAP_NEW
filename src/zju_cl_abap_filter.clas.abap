@@ -23,25 +23,8 @@ ENDCLASS.
 
 
 
-CLASS zju_cl_abap_filter IMPLEMENTATION.
+CLASS ZJU_CL_ABAP_FILTER IMPLEMENTATION.
 
-
-  METHOD if_oo_adt_classrun_out~get.
-  ENDMETHOD.
-
-
-  METHOD if_oo_adt_classrun_out~write.
-  ENDMETHOD.
-  METHOD if_oo_adt_classrun~main.
-
-    DATA(filter_by_key) = filter_by_key( ).
-    out->write( 'filter_by_key' ).
-    out->write( filter_by_key ).
-
-    DATA(filter_by_tab) = filter_by_tab( ).
-    out->write( 'filter_by_tab' ).
-    out->write( filter_by_tab ).
-  ENDMETHOD.
 
   METHOD filter_by_key.
     SELECT * FROM /dmo/agency INTO TABLE @lt_agency.
@@ -51,6 +34,7 @@ CLASS zju_cl_abap_filter IMPLEMENTATION.
 
 
   ENDMETHOD.
+
 
   METHOD filter_by_tab.
     DATA filter_tab TYPE SORTED TABLE OF /dmo/agency-country_code WITH UNIQUE KEY table_line.
@@ -63,4 +47,23 @@ CLASS zju_cl_abap_filter IMPLEMENTATION.
 
   ENDMETHOD.
 
+
+  METHOD if_oo_adt_classrun_out~get.
+  ENDMETHOD.
+
+
+  METHOD if_oo_adt_classrun_out~write.
+  ENDMETHOD.
+
+
+  METHOD if_oo_adt_classrun~main.
+
+    DATA(filter_by_key) = filter_by_key( ).
+    out->write( 'filter_by_key' ).
+    out->write( filter_by_key ).
+
+    DATA(filter_by_tab) = filter_by_tab( ).
+    out->write( 'filter_by_tab' ).
+    out->write( filter_by_tab ).
+  ENDMETHOD.
 ENDCLASS.
