@@ -1,0 +1,4 @@
+INTERFACE zju_if_reference
+  PUBLIC .
+
+ENDINTERFACE.
